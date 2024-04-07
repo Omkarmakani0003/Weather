@@ -31,8 +31,12 @@ async function getWeather(lat,lon){
 function position(position){
    getWeather(position.coords.latitude, position.coords.longitude); 
 }
+function errors(){
+       document.getElementById('content').style.display = 'none';
+      document.getElementById('error').style.display = 'block';
+}
 
 function getlocation(){
-  navigator.geolocation.getCurrentPosition(position,(error)=>console.log(error));  
+     let location =  navigator.geolocation.getCurrentPosition(position,errors);
 }
 getlocation();
